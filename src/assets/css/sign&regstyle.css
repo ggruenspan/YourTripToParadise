@@ -1,0 +1,123 @@
+.userpage { padding: 75px 600px 0px 600px; }
+#signin { padding-bottom: 315px; }
+#reg { padding-bottom: 114px;}
+
+.userform {
+    text-align: center;
+    padding: 0px 125px 0px 125px;
+}
+
+.userform .forminput {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px
+}
+
+.userpage .btn {
+    display: inline-block;
+    padding: 12px 60px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(71, 71, 71);
+    background-color: var(--site-color);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.userpage a {
+    margin-top: 10px;
+}
+
+.userform .icon {
+    cursor: pointer;
+    position: absolute;
+    width: 25px;
+    right: 442px;
+}
+
+.userform .reg1 {
+    top: 494px;
+}
+
+.userform .reg2 {
+    top: 560px;
+}
+
+/* .to-login {
+    margin-top: 20px;
+    margin-left: 425px;
+} */
+
+/* .alert {
+    width: 1030px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    padding: 12px 0px 12px 20px;
+    color: rgb(71, 71, 71);
+    border-radius: 4px;
+} */
+
+/* .alert-success { background-color: lightgreen; } */
+/* .alert-danger { background-color: lightcoral; } */
+
+@media (min-width: 1200px) {
+    .userpage { padding: 75px 335px 0px 445px; }
+}
+
+@media (max-width: 1199px) {
+    .userpage { padding: 75px 105px 0px 185px; }
+    .userform .icon { right: 216px; }
+    .userform .reg2 { top: 562px; }
+
+    /* .to-login { margin-left: 240px; } */
+}
+
+@media (max-width: 1000px) {
+    /* .userpage { padding: 75px 105px 0px 185px; }  */
+    .to-login { margin-left: 240px; }
+}
+
+@media (max-width: 960px) {
+    .userpage { padding: 75px 140px 0px 110px; }
+    /* .alert { width: 580px; } */
+    /* .to-login { margin-left: 210px; } */
+    .userform .icon { right: 248px; }
+    .userform .reg1 { top: 490px; }
+    .userform .reg2 { top: 558px; }
+}
+
+@media (max-width: 800px) {
+    .userpage { padding: 75px 80px 0px 100px; }
+    /* .alert { width: 510px; } */
+    /* .userpage .btn { padding: 12px 30px; } */
+    /* .to-login { margin-left: 210px; } */
+    #signin { padding-bottom: 377px; }
+    #reg { padding-bottom: 176px;}
+    .userform .icon { right: 190px; }
+    .userform .reg1 { top: 430px; }
+    .userform .reg2 { top: 498px; }
+}
+
+@media (max-width: 720px) {
+    .userpage { padding: 75px 115px 0px 185px; }
+    .userform { padding: 0px 50px 0px 50px; }
+    /* .alert { width: 330px; } */
+    /* .to-login { margin-left: 105px; } */
+    .userform .icon { right: 154px; }
+}
+
+@media (max-width: 550px) {
+    .userpage { padding: 75px 50px 0px 60px; }
+    .userform { padding: 0px 25px 0px 25px; }
+    /* .alert { margin-left: 30px; } */
+    .userform .icon { right: 62px; }
+}
