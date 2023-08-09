@@ -23,7 +23,10 @@ class Register extends React.Component {
             password2: "",
             showPass: false,
 
-            submitted: false
+            success: false,
+            successMsg: "",
+            error: false,
+            errorMsg: "",
         };
     }
     
@@ -36,7 +39,6 @@ class Register extends React.Component {
 
     saveUser(e) {
         e.preventDefault()
-        this.setState({ submitted: true });
 
         var data = {
             firstName: this.state.firstName,
@@ -47,11 +49,16 @@ class Register extends React.Component {
         };
     
         UserDataService.register(data)
-        .then(response => {
-            console.log(response.data); 
+        .then(() => {
+            // console.log(response.data);
+            this.setState({ success: true, successMsg: "User successfully registered"}); 
+            setTimeout(() => { window.location.replace('/signin'); }, 60000); 
         })
         .catch(e => { 
-            console.log(e.response.data.message); });
+            // console.log(e.response.data.message);
+            this.setState({ error: true, errorMsg: e.response.data.message});
+            setTimeout(() => { window.location.replace('/register'); }, 60000); 
+        });
     }
     
     render() {
@@ -59,25 +66,45 @@ class Register extends React.Component {
         <div className="userpage" id="reg">
             <h2>Register</h2>
             <hr/>
-                <div>
-                    <div className="userform">
-                        <form onSubmit={this.saveUser}>
-                            <input className="forminput" id="firstName" name="firstName" type="text" placeholder="Frist Name" maxLength="10" required value={this.state.firstName} onChange={this.onChangeFirstName}/><br/>
-                            <input className="forminput" id="lastName" name="lastName" type="text" placeholder="Last Name" required value={this.state.lastName} onChange={this.onChangeLastName}/><br/>
-                            <input className="forminput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={this.state.email} onChange={this.onChangeEmail}/><br/>
-                            <input className="forminput" id="password" name="password" type={this.state.showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={this.state.password} onChange={this.onChangePassword}/><br/>
-                            <img className="reg1 icon" src={this.state.showPass ? showPwdImg : hidePwdImg} onClick={this.onChangeShowPass} />
-                            <input className="forminput" id="password2" name="password2" type={this.state.showPass ?  "text" : "password"} placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={this.state.password2} onChange={this.onChangePassword2}/><br/>
-                            <img className="reg2 icon" src={this.state.showPass ? showPwdImg : hidePwdImg} onClick={this.onChangeShowPass} />
-
-                            <input type="submit" className="btn" value="Register"></input>
-                            <br/><br/>Already Have an Account?<br/>
-                            <a href={`/signin`} className="btn">Login</a>
-                        </form>
+            {this.state.success ? (
+                <>
+                    <div className="alert"> 
+                        <strong>Success: {this.state.successMsg}</strong> 
+                        <br/><br/>
+                        <a className="btn" href="/signin">Proceed to Login</a>
                     </div>
-                </div>
+                </>
+            ) : (
+                <>
+                    {this.state.error ? (
+                        <div className="alert">
+                            <strong>Error: {this.state.errorMsg}</strong>
+                            <br/><br/>
+                            <a className="btn" href="/register">Proceed to Register</a>
+                        </div>
+                    ) : (
+                        <div>
+                            <div className="userform">
+                                <form onSubmit={this.saveUser}>
+                                    <input className="forminput" id="firstName" name="firstName" type="text" placeholder="Frist Name" maxLength="10" required value={this.state.firstName} onChange={this.onChangeFirstName}/><br/>
+                                    <input className="forminput" id="lastName" name="lastName" type="text" placeholder="Last Name" required value={this.state.lastName} onChange={this.onChangeLastName}/><br/>
+                                    <input className="forminput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={this.state.email} onChange={this.onChangeEmail}/><br/>
+                                    <input className="forminput" id="password" name="password" type={this.state.showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={this.state.password} onChange={this.onChangePassword}/><br/>
+                                    <img className="reg1 icon" src={this.state.showPass ? showPwdImg : hidePwdImg} onClick={this.onChangeShowPass} />
+                                    <input className="forminput" id="password2" name="password2" type={this.state.showPass ?  "text" : "password"} placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={this.state.password2} onChange={this.onChangePassword2}/><br/>
+                                    <img className="reg2 icon" src={this.state.showPass ? showPwdImg : hidePwdImg} onClick={this.onChangeShowPass} />
+        
+                                    <input type="submit" className="btn" value="Register"></input>
+                                    <br/><br/>Already Have an Account?<br/>
+                                    <a href={`/signin`} className="btn">Login</a>
+                                </form>
+                            </div>
+                        </div>
+                    )}
+                </>
+            )}
         </div>
         );
     }
