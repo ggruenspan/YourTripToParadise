@@ -1,4 +1,4 @@
-function CarRental() {
+function carRental() {
     return (
         <>
             <div>
@@ -8,4 +8,4 @@ function CarRental() {
     )
 }
 
-export default CarRental
+export default carRental

@@ -9,12 +9,12 @@ import Vacations from "./components/vacations.jsx";
 import Flights from "./components/flights.jsx";
 import Hotels from "./components/hotels.jsx";
 import FlightsHotels from "./components/flights&hotels.jsx";
-import CarRentals from "./components/car-rental.jsx";
+import CarRentals from "./components/carRental.jsx";
 import Cruises from "./components/cruises.jsx";
-import ErrorPage from "./components/error-page.jsx";
+import ErrorPage from "./components/errorPage.jsx";
 
 import Register from "./components/user/register.jsx";
-import SignIn from "./components/user/signin.jsx";
+import SignIn from "./components/user/signIn.jsx";
 
 
 const router = createBrowserRouter([
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/car-rental",
+    path: "/carRental",
     element: <CarRentals />,
     errorElement: <ErrorPage />,
   },

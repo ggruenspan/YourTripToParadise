@@ -1,6 +1,6 @@
-import '../assets/css/errorstyle.css';
+import '../assets/css/errorStyle.css';
 
-function errorpage() {
+function errorPage() {
     return (
         <>
             <div className='errorDiv'>
@@ -14,4 +14,4 @@ function errorpage() {
     )
 }
 
-export default errorpage
+export default errorPage

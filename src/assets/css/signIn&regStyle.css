@@ -1,13 +1,13 @@
-.userpage { padding: 75px 600px 0px 600px; }
-#signin { padding-bottom: 315px; }
+.userPage { padding: 75px 600px 0px 600px; }
+#signIn { padding-bottom: 315px; }
 #reg { padding-bottom: 114px;}
 
-.userform {
+.userForm {
     text-align: center;
     padding: 0px 125px 0px 125px;
 }
 
-.userform .forminput {
+.userForm .formInput {
     display: block;
     width: 100%;
     height: 34px;
@@ -19,7 +19,7 @@
     border-radius: 4px
 }
 
-.userpage .btn {
+.userPage .btn {
     display: inline-block;
     padding: 12px 60px;
     margin-bottom: 0;
@@ -33,22 +33,22 @@
     border-radius: 4px;
 }
 
-.userpage a {
+.userPage a {
     margin-top: 10px;
 }
 
-.userform .icon {
+.userForm .icon {
     cursor: pointer;
     position: absolute;
     width: 25px;
     right: 442px;
 }
 
-.userform .reg1 {
+.userForm .reg1 {
     top: 494px;
 }
 
-.userform .reg2 {
+.userForm .reg2 {
     top: 560px;
 }
 
@@ -65,49 +65,49 @@
 /* .error { background-color: lightcoral; } */
 
 @media (min-width: 1200px) {
-    .userpage { padding: 75px 335px 0px 445px; }
+    .userPage { padding: 75px 335px 0px 445px; }
     .alert { width: 60%} ;
 }
 
 @media (max-width: 1199px) {
-    .userpage { padding: 75px 105px 0px 185px; }
-    .userform .icon { right: 216px; }
-    .userform .reg2 { top: 562px; }
+    .userPage { padding: 75px 105px 0px 185px; }
+    .userForm .icon { right: 250px; }
+    .userForm .reg2 { top: 562px; }
     /* .to-login { margin-left: 240px; } */
 }
 
 @media (max-width: 1000px) {
-    .userpage { padding: 75px 105px 0px 185px; } 
+    .userPage { padding: 75px 105px 0px 185px; } 
     /* .to-login { margin-left: 240px; } */
 }
 
 @media (max-width: 960px) {
-    .userpage { padding: 75px 140px 0px 110px; }
+    .userPage { padding: 75px 140px 0px 110px; }
     .alert { width: 60%} ;
     /* .to-login { margin-left: 210px; } */
-    .userform .icon { right: 248px; }
-    .userform .reg1 { top: 490px; }
-    .userform .reg2 { top: 558px; }
+    .userForm .icon { right: 248px; }
+    .userForm .reg1 { top: 490px; }
+    .userForm .reg2 { top: 558px; }
 }
 
 @media (max-width: 800px) {
-    .userpage { padding: 75px 80px 0px 100px; }
+    .userPage { padding: 75px 80px 0px 100px; }
     /* .to-login { margin-left: 210px; } */
-    #signin { padding-bottom: 377px; }
+    #signIn { padding-bottom: 377px; }
     #reg { padding-bottom: 176px;}
-    .userform .icon { right: 190px; }
-    .userform .reg1 { top: 430px; }
-    .userform .reg2 { top: 498px; }
+    .userForm .icon { right: 190px; }
+    .userForm .reg1 { top: 430px; }
+    .userForm .reg2 { top: 498px; }
 }
 
 @media (max-width: 720px) {
-    .userform { padding: 0px 50px 0px 50px; }
+    .userForm { padding: 0px 50px 0px 50px; }
     .alert { width: 70%} ;
     /* .to-login { margin-left: 105px; } */
-    .userform .icon { right: 154px; }
+    .userForm .icon { right: 154px; }
 }
 
 @media (max-width: 550px) {
-    .userpage { padding: 75px 50px 0px 60px; }
-    .userform .icon { right: 62px; }
+    .userPage { padding: 75px 50px 0px 60px; }
+    .userForm .icon { right: 62px; }
 }
