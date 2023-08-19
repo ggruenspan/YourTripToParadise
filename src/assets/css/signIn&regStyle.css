@@ -52,6 +52,10 @@
     top: 560px;
 }
 
+.userForm .signIn {
+    top: 360px;
+}
+
 .alert {
     margin: auto;
     width: 50%;
@@ -98,6 +102,7 @@
     .userForm .icon { right: 190px; }
     .userForm .reg1 { top: 430px; }
     .userForm .reg2 { top: 498px; }
+    .userForm .signIn { top: 294px; }
 }
 
 @media (max-width: 720px) {
@@ -109,5 +114,5 @@
 
 @media (max-width: 550px) {
     .userPage { padding: 75px 50px 0px 60px; }
-    .userForm .icon { right: 62px; }
+    .userForm .icon { right: 80px; }
 }
