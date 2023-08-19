@@ -2,10 +2,16 @@ import '../assets/css/navBarStyle.css';
 import logo from '../assets/images/logo.png';
 
 function navBar() {
+    const currentPath = window.location.pathname; // Get the current path
+
+    const isActive = (path) => {
+        return currentPath === path ? 'active' : '';
+    };
+
     return (
         <>
             <nav>
-                <div id="navcontent">
+                <div id="navContent">
                     <div className="navBar-header">
                         <a href="https://yourtriptoparadise.netlify.app">
                             <img src={logo} alt="logo" className="logo"></img>
@@ -48,13 +54,13 @@ function navBar() {
 
                     <div className="collapse navBar-collapse" id="navBar-collapse">
                         <ul className="nav navBar-nav">
-                            <li><a href={`/`}>Home</a></li>
-                            <li><a href={`/vacations`}>Vacations</a></li>
-                            <li><a href={`/flights`}>Flights</a></li>
-                            <li><a href={`/hotels`}>Hotels</a></li>
-                            <li><a href={`/flights&hotels`}>Flights + Hotels</a></li>
-                            <li><a href={`/carRental`}>Car Rentals</a></li>
-                            <li><a href={`/cruises`}>Cruises</a></li>
+                            <li><a href={`/`} className={isActive('/')}>Home</a></li>
+                            <li><a href={`/vacations`} className={isActive('/vacations')}>Vacations</a></li>
+                            <li><a href={`/flights`} className={isActive('/flights')}>Flights</a></li>
+                            <li><a href={`/hotels`} className={isActive('/hotels')}>Hotels</a></li>
+                            <li><a href={`/flights&hotels`}  className={isActive('/flights&hotels')}>Flights + Hotels</a></li>
+                            <li><a href={`/carRental`} className={isActive('/carRental')}>Car Rentals</a></li>
+                            <li><a href={`/cruises`}  className={isActive('/cruises')}>Cruises</a></li>
 
                             {/* {{#if session.user}}
                                 <li id="opt" style="display: none;"><a href="/useropt">&nbsp;<i class="fa-solid fa-user"></i>&nbsp;{{session.user.userName}}</a></li>
