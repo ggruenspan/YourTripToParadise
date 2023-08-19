@@ -17,8 +17,6 @@ class signIn extends React.Component {
             password: "",
             showPass: false,
 
-            success: false,
-            successMsg: "",
             error: false,
             errorMsg: "",
         };
@@ -37,8 +35,15 @@ class signIn extends React.Component {
         };
 
         UserDataService.signIn(data)
-        .then(() => {})
-        .catch(() =>{});
+        .then(e => {
+            // console.log(e.data.successMessage);
+            setTimeout(() => { window.location.replace('/'); }, 0); 
+        })
+        .catch(e => { 
+            // console.log(e.response.data.errorMessage);
+            this.setState({ error: true, errorMsg: e.response.data.errorMessage});
+            setTimeout(() => { window.location.replace('/signIn'); }, 60000); 
+        });
     }
 
     render() {
