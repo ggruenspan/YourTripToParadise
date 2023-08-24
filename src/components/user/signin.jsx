@@ -37,7 +37,7 @@ class signIn extends React.Component {
         UserDataService.signIn(data)
         .then(e => {
             // console.log(e.data.successMessage);
-            setTimeout(() => { window.location.replace('/'); }, 0); 
+            window.location.replace('/');
         })
         .catch(e => { 
             // console.log(e.response.data.errorMessage);
