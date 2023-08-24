@@ -8,7 +8,7 @@ class UserDataService {
   signIn(data) {
     return http.post('/signIn', data);
   }
-
+  
   getUserData() {
     return http.get('/userData');
   }
