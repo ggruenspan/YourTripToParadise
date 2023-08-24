@@ -8,7 +8,6 @@ import { FaGear, FaArrowRightFromBracket } from "react-icons/fa6";
 class navBar extends React.Component {
     constructor(props) {
         super(props);
-        this.signOut = this.signOut.bind(this);
 
         this.state = {
             currentPath: window.location.pathname,
