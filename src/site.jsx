@@ -14,8 +14,10 @@ import Cruises from "./components/cruises.jsx";
 import ErrorPage from "./components/errorPage.jsx";
 
 import Register from "./components/user/register.jsx";
-import SignIn from "./components/user/signin.jsx";
-
+import SignIn from "./components/user/signIn.jsx";
+import AccountSettings from "./components/user/accountSettings.jsx";
+import Bookings from "./components/user/bookings.jsx";
+import Favourites from "./components/user/favourites.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/signin",
+    path: "/signIn",
     element: <SignIn />,
     errorElement: <ErrorPage />,
   },
@@ -61,6 +63,21 @@ const router = createBrowserRouter([
   {
     path: "/cruises",
     element: <Cruises />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/accountSettings",
+    element: <AccountSettings />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/bookings",
+    element: <Bookings />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/favourites",
+    element: <Favourites />,
     errorElement: <ErrorPage />,
   },
 ]);
