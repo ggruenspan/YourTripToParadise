@@ -115,7 +115,7 @@
     right: 1rem;
 }
 
-.btn-register, .btn-signIn, .dropdown .btn-toggle  { 
+.btn-register, .btn-signIn, .dropDown .btn-toggle  { 
     color:#fff;
     background-color: var(--navBar-color);
     padding: 10px 10px 10px 10px;
@@ -134,7 +134,7 @@
 
 .dropDown .btn-toggle {
     text-align: center;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 430;
 }
 
@@ -144,7 +144,7 @@
     background-color: var(--bg-primary);
     min-width: 185px;
     z-index: 1;
-    top: 30px;
+    top: 32px;
     left: -30px;
 }
 
@@ -294,7 +294,7 @@
 
 @media (max-width: 550px) {
     #navBar-toggle { right: 70px; }
-    #opt, #out { left: 15px; }
+    /* #opt, #out { left: 15px; } */
 }
 
 @media (max-width: 350px) {
