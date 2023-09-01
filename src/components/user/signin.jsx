@@ -1,81 +1,71 @@
-import React from 'react';
+import React, { useState, } from 'react';
 import '../../assets/css/signIn&regStyle.css';
 import showPwdImg from '../../assets/images/showPass.svg';
 import hidePwdImg from '../../assets/images/hidePass.svg';
 import UserDataService from "../../assets/js/service.js";
 
-class signIn extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
-        this.onChangePassword = this.onChangePassword.bind(this);
-        this.onChangeShowPass = this.onChangeShowPass.bind(this);
-        this.checkUser = this.checkUser.bind(this);
+function signIn() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPass, setShowPass] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
 
-        this.state = {
-            email: "",
-            password: "",
-            showPass: false,
+    const onChangeEmail = e => setEmail(e.target.value);
+    const onChangePassword = e => setPassword(e.target.value);
+    const onChangeShowPass = () => setShowPass(prevState => !prevState);
 
-            error: false,
-            errorMsg: "",
-        };
-    }
+    const handleSignIn = async (e) => {
+        e.preventDefault();
 
-    onChangeEmail(e) { this.setState({ email: e.target.value }); }
-    onChangePassword(e) {  this.setState({ password: e.target.value }); }
-    onChangeShowPass() { this.setState(prevState => ({ showPass: !prevState.showPass })); }
-
-    checkUser(e) {
-        e.preventDefault()
-
-        var data = {
-            email: this.state.email,
-            password: this.state.password,
+        const data = {
+            email: email,
+            password: password
         };
 
         UserDataService.signIn(data)
-        .then(e => {
-            // console.log(e.data.successMessage);
-            setTimeout(() => { window.location.replace('/'); }, 0); 
+        .then(response => {
+            // console.log(response.data);
+            localStorage.setItem('jwtToken', response.data.token);
+            setTimeout(() => { window.location.replace('/'); }, 0);
         })
-        .catch(e => { 
-            // console.log(e.response.data.errorMessage);
-            this.setState({ error: true, errorMsg: e.response.data.errorMessage});
-            setTimeout(() => { window.location.replace('/signIn'); }, 60000); 
-        });
+        .catch(error => {
+            // console.log(error.response.data);
+            setError(true);
+            setErrorMsg(error.response.data);
+            setTimeout(() => { window.location.replace('/register'); }, 60000); 
+        })
+
     }
 
-    render() {
-        return (
-            <div className="userPage" id="signIn">
-                <h2>Sign In</h2>
-                <hr/>
-                {this.state.error ? (
-                    <div className="alert">
-                        <strong>{this.state.errorMsg}</strong>
-                        <br/><br/>
-                        <a className="btn" href="/signIn">Proceed to Login</a>
+    return (
+        <div className="userPage" id="signIn">
+            <h2>Sign In</h2>
+            <hr/>
+            {error ? (
+                <div className="alert">
+                    <strong>{errorMsg}</strong>
+                    <br/><br/>
+                    <a className="btn" href="/signIn">Proceed to Login</a>
+                </div>
+            ) : (
+                <div>
+                    <div className="userForm">
+                        <form onSubmit={handleSignIn}>
+                            <input className="formInput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={email} onChange={onChangeEmail}/><br/>
+                            <input className="formInput" id="password" name="password" type={showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password} onChange={onChangePassword}/><br/>
+                            <img className="signIn icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
+
+                            <input type="submit" className="btn" value="Sign In"></input>
+                            <br/><br/>Need an Account?<br/>
+                            <a href={`/register`} className="btn">Register</a>
+                        </form>
                     </div>
-                ) : (
-                    <div>
-                        <div className="userForm">
-                            <form onSubmit={this.checkUser}>
-                                <input className="formInput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={this.state.email} onChange={this.onChangeEmail}/><br/>
-                                <input className="formInput" id="password" name="password" type={this.state.showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={this.state.password} onChange={this.onChangePassword}/><br/>
-                                <img className="signIn icon" src={this.state.showPass ? showPwdImg : hidePwdImg} onClick={this.onChangeShowPass} />
-    
-                                <input type="submit" className="btn" value="Sign In"></input>
-                                <br/><br/>Need an Account?<br/>
-                                <a href={`/register`} className="btn">Register</a>
-                            </form>
-                        </div>
-                    </div>
-                )}
-            </div>
-        );
-    }
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default signIn
