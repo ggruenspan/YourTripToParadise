@@ -209,7 +209,6 @@
     .navBar-header{ max-width: 720px; }
     #navBar-toggle { display: flex; }
     .navBar-collapse { display: none;}
-    #regSign { display: flex; }
     .phoneNum-lang { display: none; }
     .user-btns  { padding-right: 0px; margin-right: 160px; }
     #navBar-toggle { right: 100px; }
@@ -291,6 +290,7 @@
 
 @media (max-width: 650px) {
     .user-btns  { display: none; }
+    #regSign { display: flex; }
     /* #navBar-toggle { right: 70px; }
     #opt, #out { left: 15px; } */
 }
@@ -305,9 +305,3 @@
 }
 
 /* Header ------------------------------------------------------------- End */
-
-footer {
-    width: 150%;
-    height: 75px;
-    background: #111D13;
-}

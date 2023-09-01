@@ -112,6 +112,10 @@
     .userForm .icon { right: 154px; }
 }
 
+@media (max-width: 700px) {
+    .userForm .icon { right: 120px; }
+}
+
 @media (max-width: 550px) {
     .userPage { padding: 75px 50px 0px 60px; }
     .userForm .icon { right: 80px; }
