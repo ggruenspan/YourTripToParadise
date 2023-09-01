@@ -19,6 +19,8 @@ import AccountSettings from "./components/user/accountSettings.jsx";
 import Bookings from "./components/user/bookings.jsx";
 import Favourites from "./components/user/favourites.jsx";
 
+import Footer from "./components/footer.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -86,5 +88,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Navbar />
     <RouterProvider router={router} />
+    <Footer />
   </React.StrictMode>
 );
