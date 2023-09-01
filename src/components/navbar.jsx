@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
-import UserDataService from "../assets/js/service.js";
+import UserDataService from '../assets/js/service.js';
 import '../assets/css/navBarStyle.css';
 import logo from '../assets/images/logo.png';
 import { FaUserAlt, FaCaretDown, FaCaretLeft, FaSuitcase, FaHeart } from 'react-icons/fa';
-import { FaGear, FaArrowRightFromBracket } from "react-icons/fa6";
+import { FaGear, FaArrowRightFromBracket } from 'react-icons/fa6';
 
 function NavBar() {
     const currentPath = window.location.pathname;
@@ -14,10 +14,23 @@ function NavBar() {
     const [isContentOpen, setIsContentOpen] = useState(false);
 
     useEffect(() => {
-        userData();
+        handleUserData();
+        handleWindowResize();
+
+        document.addEventListener('mouseup', handleDocumentClick);
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => {
+            document.removeEventListener('mouseup', handleDocumentClick);
+            window.addEventListener('resize', handleWindowResize);
+        };
     }, []);
 
-    const userData = async () => {
+    const isActive = (path) => {
+        return currentPath === path ? 'active' : '';
+    };
+
+    const handleUserData = async () => {
         try {
             const token = localStorage.getItem('jwtToken');
             if (token) {
@@ -54,18 +67,41 @@ function NavBar() {
         })
     }
 
-    const isActive = (path) => {
-        return currentPath === path ? 'active' : '';
-    };
-
-
     const toggleButton = () => {
+        setIsMenuOpen(prevState => !prevState);
+        const navBarCollapse = document.getElementById('navBar-collapse');
+        const body = document.getElementsByTagName('body')[0];
+        if (navBarCollapse) {
+            navBarCollapse.style.display = !isMenuOpen ? 'flex' : '';
+            body.style.overflowY = !isMenuOpen ? 'hidden' : 'auto';
+        }
     };
-
+    
     const toggleContent = () => {
         setIsContentOpen(prevState => !prevState);
         const content = document.getElementById('content');
         content.style.display = content.style.display === '' ? 'block' : '';
+    };
+
+    const handleDocumentClick = (e) => {
+        const content = document.getElementById('content');
+        if (
+            !e.target.classList.contains('btn-toggle') &&
+            content.style.display == 'block'
+        ) {
+            setIsContentOpen(prevState => !prevState);
+            content.style.display = content.style.display === '' ? 'block' : '';
+        }
+    };
+
+    const handleWindowResize = () => {
+        const navBarCollapse = document.getElementById('navBar-collapse');
+        const body = document.getElementsByTagName('body')[0];
+        if (window.innerWidth > 800) {
+            navBarCollapse.style.display = isMenuOpen ? 'flex' : '';
+            body.style.overflowY = isMenuOpen ? 'hidden' : 'auto';
+            setIsMenuOpen(prevState => !prevState);
+        }
     };
 
     return (
@@ -116,7 +152,8 @@ function NavBar() {
                         <li><a href={`/carRental`} className={isActive('/carRental')}>Car Rentals</a></li>
                         <li><a href={`/cruises`}  className={isActive('/cruises')}>Cruises</a></li>
                         {session  ? (
-                            <></>
+                            <>
+                            </>
                         ) : (
                             <li id="regSign">
                                 <a href={`/register`} style={{'marginRight': '24px' }}>Register</a>
