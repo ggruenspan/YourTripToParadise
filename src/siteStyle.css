@@ -27,13 +27,13 @@ a {
 } */
 
 body::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0rem;
 }
 
-body::-webkit-scrollbar-track {
+/* body::-webkit-scrollbar-track {
     background: var(--bg-primary);
 }
 
 body::-webkit-scrollbar-thumb {
     background: var(--navbar-color);
-}
+} */
