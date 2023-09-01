@@ -2,7 +2,7 @@ import React, { useState, } from 'react';
 import '../../assets/css/signIn&regStyle.css';
 import showPwdImg from '../../assets/images/showPass.svg';
 import hidePwdImg from '../../assets/images/hidePass.svg';
-import UserDataService from "../../assets/js/service.js";
+import UserDataService from '../../assets/js/service.js';
 
 function signIn() {
     const [email, setEmail] = useState('');
