@@ -7,5 +7,5 @@ function Home() {
         </>
     )
 }
-
+// FaHome, FaPlaneDeparture, FaBuilding, FaCar, FaShip,
 export default Home

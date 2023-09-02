@@ -65,6 +65,10 @@
     text-align: center;
 }
 
+.userForm #menuOpen {
+    visibility: hidden;
+}
+
 /* .success { background-color: lightgreen; } */
 /* .error { background-color: lightcoral; } */
 

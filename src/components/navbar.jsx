@@ -71,9 +71,13 @@ function NavBar() {
         setIsMenuOpen(prevState => !prevState);
         const navBarCollapse = document.getElementById('navBar-collapse');
         const body = document.getElementsByTagName('body')[0];
+        const icon = document.getElementsByClassName('icon');
         if (navBarCollapse) {
             navBarCollapse.style.display = !isMenuOpen ? 'flex' : '';
             body.style.overflowY = !isMenuOpen ? 'hidden' : 'auto';
+            for(let i = 0; i < icon.length; i++) {
+                icon[i].id = !isMenuOpen ? 'menuOpen' : '';
+            }
         }
     };
     
@@ -100,7 +104,7 @@ function NavBar() {
         if (window.innerWidth > 800) {
             navBarCollapse.style.display = isMenuOpen ? 'flex' : '';
             body.style.overflowY = isMenuOpen ? 'hidden' : 'auto';
-            setIsMenuOpen(prevState => !prevState);
+            setIsMenuOpen(false);
         }
     };
 
@@ -130,7 +134,7 @@ function NavBar() {
                                     <a href={`/accountSettings`}><FaGear style={{'margin': '0px 10px -2px 0px'}}/>Account Settings</a>
                                     <a href={`/bookings`}><FaSuitcase style={{'margin': '0px 10px -2px 0px'}}/>Bookings</a>
                                     <a href={`/favourites`}><FaHeart style={{'margin': '0px 10px -2px 0px'}}/>Favourites</a>
-                                    <a onClick={handleSignOut}><FaArrowRightFromBracket style={{'margin': '0px 10px -2px 0px'}}/>Log Out</a>
+                                    <a onClick={handleSignOut}><FaArrowRightFromBracket style={{'margin': '0px 10px -2px 0px'}}/>Sign Out</a>
                                 </div>
                             </div>
                         </form>
@@ -142,7 +146,7 @@ function NavBar() {
                     )}
                 </div>
 
-                <div className="collapse navBar-collapse" id="navBar-collapse">
+                <div className="collapse navBar-collapse menu-toggle-button" id="navBar-collapse">
                     <ul className="nav navBar-nav">
                         <li><a href={`/`} className={isActive('/')}>Home</a></li>
                         <li><a href={`/vacations`} className={isActive('/vacations')}>Vacations</a></li>
@@ -151,11 +155,13 @@ function NavBar() {
                         <li><a href={`/flights&hotels`}  className={isActive('/flights&hotels')}>Flights + Hotels</a></li>
                         <li><a href={`/carRental`} className={isActive('/carRental')}>Car Rentals</a></li>
                         <li><a href={`/cruises`}  className={isActive('/cruises')}>Cruises</a></li>
-                        {session  ? (
-                            <>
-                            </>
+                        {session ? (
+                            <li id="menuOpt">
+                                <a href={`/userOpt`} style={{'marginRight': '24px' }}><FaUserAlt style={{'margin': '0px 10px -2px 0px'}}/>{userName}</a>
+                                <a onClick={handleSignOut}><FaArrowRightFromBracket style={{'margin': '0px 10px -2px 0px'}}/>Sign Out</a>
+                            </li>
                         ) : (
-                            <li id="regSign">
+                            <li id="menuOpt">
                                 <a href={`/register`} style={{'marginRight': '24px' }}>Register</a>
                                 <a href={`/signIn`}>Sign In</a>
                             </li>

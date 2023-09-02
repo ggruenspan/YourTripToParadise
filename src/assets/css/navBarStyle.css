@@ -162,7 +162,7 @@
 
 .dropDown-content a:hover { background-color: rgba(170, 169, 169, 0.788); }
 
-#regSign { display: none; }
+#menuOpt { display: none; }
 
 /* navBar ------------------------------------------------------------- End */
 
@@ -290,7 +290,7 @@
 
 @media (max-width: 650px) {
     .user-btns  { display: none; }
-    #regSign { display: flex; }
+    #menuOpt { display: flex; }
     /* #navBar-toggle { right: 70px; }
     #opt, #out { left: 15px; } */
 }
