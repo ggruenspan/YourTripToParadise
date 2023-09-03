@@ -1,6 +1,4 @@
 .errorDiv {
-    /* height: 10em; */
-    /* position: relative; */
     color: black;   
     font-weight: 900;    
     font-size: 18px;
@@ -13,4 +11,17 @@
 
 a {
     color: #111d13; 
+}
+
+@media (max-width: 800px) {
+    .errorDiv {
+        min-height: 85vh;
+    }
+}
+
+@media (max-width: 550px) {
+    .errorDiv {  
+        font-size: 15px;
+        padding: 0px 0px 0px 0px;
+    }
 }
