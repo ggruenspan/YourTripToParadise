@@ -53,9 +53,11 @@ function signIn() {
                     <div className="userForm">
                         <form onSubmit={handleSignIn}>
                             <input className="formInput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={email} onChange={onChangeEmail}/><br/>
-                            <input className="formInput" id="password" name="password" type={showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password} onChange={onChangePassword}/><br/>
-                            <img className="signIn icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
+                            <div className="passwordInputContainer">
+                                <input className="formInput" id="password" name="password" type={showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password} onChange={onChangePassword}/><br/>
+                                <img className="signIn icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
+                            </div>
 
                             <input type="submit" className="btn" value="Sign In"></input>
                             <br/><br/>Need an Account?<br/>

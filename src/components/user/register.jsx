@@ -75,13 +75,15 @@ function Register() {
                                     <input className="formInput" id="firstName" name="firstName" type="text" placeholder="Frist Name" maxLength="10" required value={firstName} onChange={onChangeFirstName}/><br/>
                                     <input className="formInput" id="lastName" name="lastName" type="text" placeholder="Last Name" required value={lastName} onChange={onChangeLastName}/><br/>
                                     <input className="formInput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={email} onChange={onChangeEmail}/><br/>
-                                    <input className="formInput" id="password" name="password" type={showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password} onChange={onChangePassword}/><br/>
-                                    <img className="reg1 icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
-                                    <input className="formInput" id="password2" name="password2" type={showPass ?  "text" : "password"} placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password2} onChange={onChangePassword2}/><br/>
-                                    <img className="reg2 icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
-        
+                                    <div className="passwordInputContainer">
+                                        <input className="formInput" id="password" name="password" type={showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password} onChange={onChangePassword}/><br/>
+                                        <img className="reg1 icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
+                                        <input className="formInput" id="password2" name="password2" type={showPass ?  "text" : "password"} placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password2} onChange={onChangePassword2}/><br/>
+                                        <img className="reg2 icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
+                                    </div>
+                    
                                     <input type="submit" className="btn" value="Register"></input>
                                     <br/><br/>Already Have an Account?<br/>
                                     <a href={`/signIn`} className="btn">Sign In</a>

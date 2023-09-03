@@ -1,4 +1,4 @@
-.userPage { padding: 75px 600px 0px 600px; }
+.userPage { padding: 75px 30% 0px 30%; }
 #signIn { padding-bottom: 315px; }
 #reg { padding-bottom: 114px;}
 
@@ -37,23 +37,29 @@
     margin-top: 10px;
 }
 
-.userForm .icon {
-    cursor: pointer;
+.passwordInputContainer {
+    position: relative;
+}
+
+.userForm  .icon {
     position: absolute;
+    cursor: pointer;
     width: 25px;
-    right: 442px;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 }
 
 .userForm .reg1 {
-    top: 494px;
+    top: 25px;
 }
 
 .userForm .reg2 {
-    top: 560px;
+    top: 90px;
 }
 
 .userForm .signIn {
-    top: 360px;
+    top: 25px;
 }
 
 .alert {
@@ -69,58 +75,30 @@
     visibility: hidden;
 }
 
-/* .success { background-color: lightgreen; } */
-/* .error { background-color: lightcoral; } */
-
-@media (min-width: 1200px) {
-    .userPage { padding: 75px 335px 0px 445px; }
-    .alert { width: 60%} ;
-}
-
 @media (max-width: 1199px) {
-    .userPage { padding: 75px 105px 0px 185px; }
-    .userForm .icon { right: 250px; }
-    .userForm .reg2 { top: 562px; }
-    /* .to-login { margin-left: 240px; } */
-}
-
-@media (max-width: 1000px) {
-    .userPage { padding: 75px 105px 0px 185px; } 
-    /* .to-login { margin-left: 240px; } */
+    .userPage { padding: 75px 20% 0px 25%; }
 }
 
 @media (max-width: 960px) {
-    .userPage { padding: 75px 140px 0px 110px; }
+    .userPage { padding: 75px 25% 0px 20%; }
     .alert { width: 60%} ;
-    /* .to-login { margin-left: 210px; } */
-    .userForm .icon { right: 248px; }
-    .userForm .reg1 { top: 490px; }
-    .userForm .reg2 { top: 558px; }
 }
 
 @media (max-width: 800px) {
-    .userPage { padding: 75px 80px 0px 100px; }
-    /* .to-login { margin-left: 210px; } */
+    .userPage { padding: 75px 20% 0px 20%; }
     #signIn { padding-bottom: 377px; }
     #reg { padding-bottom: 176px;}
-    .userForm .icon { right: 190px; }
-    .userForm .reg1 { top: 430px; }
-    .userForm .reg2 { top: 498px; }
-    .userForm .signIn { top: 294px; }
 }
 
 @media (max-width: 720px) {
-    .userForm { padding: 0px 50px 0px 50px; }
+    .userForm { padding: 0px 15% 0px 15%; }
     .alert { width: 70%} ;
-    /* .to-login { margin-left: 105px; } */
-    .userForm .icon { right: 154px; }
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
     .userForm .icon { right: 120px; }
-}
+} */
 
 @media (max-width: 550px) {
-    .userPage { padding: 75px 50px 0px 60px; }
-    .userForm .icon { right: 80px; }
+    .userPage { padding: 75px 15% 0px 16%; }
 }
