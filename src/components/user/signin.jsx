@@ -38,6 +38,9 @@ function signIn() {
 
     }
 
+    const handleForgotPassword = () => {
+    };
+
     return (
         <div className="userPage" id="signIn">
             <h2>Sign In</h2>

@@ -86,7 +86,7 @@ function Register() {
                     
                                     <input type="submit" className="btn" value="Register"></input>
                                     <br/><br/>Already Have an Account?<br/>
-                                    <a href={`/signIn`} className="btn">Sign In</a>
+                                    <a href={`/signIn`} className="btn" style={{'marginTop': '10px'}}>Sign In</a>
                                 </form>
                             </div>
                         </div>
