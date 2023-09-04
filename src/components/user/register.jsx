@@ -72,7 +72,7 @@ function Register() {
                         <div>
                             <div className="userForm">
                                 <form onSubmit={handleRegister}>
-                                    <input className="formInput" id="firstName" name="firstName" type="text" placeholder="Frist Name" maxLength="10" required value={firstName} onChange={onChangeFirstName}/><br/>
+                                    <input className="formInput" id="firstName" name="firstName" type="text" placeholder="First Name" maxLength="10" required value={firstName} onChange={onChangeFirstName}/><br/>
                                     <input className="formInput" id="lastName" name="lastName" type="text" placeholder="Last Name" required value={lastName} onChange={onChangeLastName}/><br/>
                                     <input className="formInput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={email} onChange={onChangeEmail}/><br/>
                                     <div className="passwordInputContainer">

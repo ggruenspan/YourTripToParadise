@@ -2,4 +2,6 @@ footer {
     width: 150%;
     height: 75px;
     background: #111D13;
+    position: absolute;
+    bottom: 0;
 }
