@@ -15,6 +15,9 @@ import ErrorPage from "./components/errorPage.jsx";
 
 import Register from "./components/user/register.jsx";
 import SignIn from "./components/user/signIn.jsx";
+import ForgotPassword from "./components/user/passwordOpt/forgotPassword.jsx";
+import ResetPassword from "./components/user/passwordOpt/resetPassword.jsx";
+
 import AccountSettings from "./components/user/userOpt/accountSettings.jsx";
 import Bookings from "./components/user/userOpt/bookings.jsx";
 import Favourites from "./components/user/userOpt/favourites.jsx";
@@ -25,16 +28,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/signIn",
-    element: <SignIn />,
     errorElement: <ErrorPage />,
   },
   {
@@ -58,7 +51,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/carRental",
+    path: "/car-rental",
     element: <CarRentals />,
     errorElement: <ErrorPage />,
   },
@@ -67,8 +60,30 @@ const router = createBrowserRouter([
     element: <Cruises />,
     errorElement: <ErrorPage />,
   },
+
   {
-    path: "/accountSettings",
+    path: "/register",
+    element: <Register />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/sign-in",
+    element: <SignIn />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/reset-password/:token",
+    element: <ResetPassword />,
+    errorElement: <ErrorPage />,
+  },
+
+  {
+    path: "/account-settings",
     element: <AccountSettings />,
     errorElement: <ErrorPage />,
   },
