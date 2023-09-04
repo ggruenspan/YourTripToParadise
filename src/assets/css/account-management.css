@@ -1,6 +1,4 @@
 .userPage { padding: 75px 30% 0px 30%; }
-#signIn { padding-bottom: 315px; }
-#reg { padding-bottom: 114px;}
 
 .userForm {
     text-align: center;
@@ -80,6 +78,25 @@
     visibility: hidden;
 }
 
+/* .forgotPasswordContainer {
+    margin: -1% 0% 10% 68%;
+} */
+
+.forgotPassword {
+    transition: color 0.3s ease;
+}
+
+.forgotPassword:hover {
+    color: var(--site-color2);
+}
+
+.description {
+    font-weight: 300;
+    font-size: 16px;
+    margin: 15px 85px 30px;
+    text-align: center;
+}
+
 @media (max-width: 1199px) {
     .userPage { padding: 75px 20% 0px 25%; }
 }
@@ -91,8 +108,6 @@
 
 @media (max-width: 800px) {
     .userPage { padding: 75px 20% 0px 20%; }
-    #signIn { padding-bottom: 377px; }
-    #reg { padding-bottom: 176px;}
 }
 
 @media (max-width: 720px) {
