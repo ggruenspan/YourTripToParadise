@@ -15,9 +15,9 @@ import ErrorPage from "./components/errorPage.jsx";
 
 import Register from "./components/user/register.jsx";
 import SignIn from "./components/user/signIn.jsx";
-import AccountSettings from "./components/user/accountSettings.jsx";
-import Bookings from "./components/user/bookings.jsx";
-import Favourites from "./components/user/favourites.jsx";
+import AccountSettings from "./components/user/userOpt/accountSettings.jsx";
+import Bookings from "./components/user/userOpt/bookings.jsx";
+import Favourites from "./components/user/userOpt/favourites.jsx";
 
 import Footer from "./components/footer.jsx";
 
