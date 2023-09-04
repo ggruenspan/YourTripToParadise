@@ -131,7 +131,7 @@ function NavBar() {
                             <div className="dropDown">
                                 <a className="btn-toggle" onClick={toggleContent}><FaUserAlt style={{'margin': '0px 10px -2px 0px'}}/>{userName}{isContentOpen ? (<FaCaretDown style={{'margin': '0px 0px -2px 10px'}}/>) : (<FaCaretLeft style={{'margin': '0px 0px -2px 10px'}}/>)}</a>
                                 <div className="dropDown-content" id="content">
-                                    <a href={`/accountSettings`}><FaGear style={{'margin': '0px 10px -2px 0px'}}/>Account Settings</a>
+                                    <a href={`/account-settings`}><FaGear style={{'margin': '0px 10px -2px 0px'}}/>Account Settings</a>
                                     <a href={`/bookings`}><FaSuitcase style={{'margin': '0px 10px -2px 0px'}}/>Bookings</a>
                                     <a href={`/favourites`}><FaHeart style={{'margin': '0px 10px -2px 0px'}}/>Favourites</a>
                                     <a onClick={handleSignOut}><FaArrowRightFromBracket style={{'margin': '0px 10px -2px 0px'}}/>Sign Out</a>
@@ -141,7 +141,7 @@ function NavBar() {
                     ) : (
                         <form className="user-btns">
                             <a href={`/register`} className="btn-register">Register</a>
-                            <a href={`/signIn`} className="btn-signIn">Sign In</a>
+                            <a href={`/sign-in`} className="btn-signIn">Sign In</a>
                         </form>
                     )}
                 </div>
@@ -153,17 +153,17 @@ function NavBar() {
                         <li><a href={`/flights`} className={isActive('/flights')}>Flights</a></li>
                         <li><a href={`/hotels`} className={isActive('/hotels')}>Hotels</a></li>
                         <li><a href={`/flights&hotels`}  className={isActive('/flights&hotels')}>Flights + Hotels</a></li>
-                        <li><a href={`/carRental`} className={isActive('/carRental')}>Car Rentals</a></li>
+                        <li><a href={`/car-rental`} className={isActive('/carRental')}>Car Rentals</a></li>
                         <li><a href={`/cruises`}  className={isActive('/cruises')}>Cruises</a></li>
                         {session ? (
                             <li id="menuOpt">
-                                <a href={`/userOpt`} style={{'marginRight': '24px' }}><FaUserAlt style={{'margin': '0px 10px -2px 0px'}}/>{userName}</a>
+                                <a href={`/user-opt`} style={{'marginRight': '24px' }}><FaUserAlt style={{'margin': '0px 10px -2px 0px'}}/>{userName}</a>
                                 <a onClick={handleSignOut}><FaArrowRightFromBracket style={{'margin': '0px 10px -2px 0px'}}/>Sign Out</a>
                             </li>
                         ) : (
                             <li id="menuOpt">
                                 <a href={`/register`} style={{'marginRight': '24px' }}>Register</a>
-                                <a href={`/signIn`}>Sign In</a>
+                                <a href={`/sign-in`}>Sign In</a>
                             </li>
                             
                         )}

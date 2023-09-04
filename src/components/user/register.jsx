@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../assets/css/signIn&regStyle.css';
+import '../../assets/css/account-management.css';
 import showPwdImg from '../../assets/images/showPass.svg';
 import hidePwdImg from '../../assets/images/hidePass.svg';
 import UserDataService from '../../assets/js/service.js';
@@ -39,7 +39,7 @@ function Register() {
             // console.log(response.data);
             setSuccess(true);
             setSuccessMsg(response.data);
-            setTimeout(() => { window.location.replace('/signIn'); }, 60000); 
+            setTimeout(() => { window.location.replace('/sign-in'); }, 60000); 
         })
         .catch(error => { 
             // console.log(error.response.data);
@@ -51,14 +51,14 @@ function Register() {
     };
 
     return (
-        <div className="userPage" id="reg">
+        <div className="userPage">
             <h2>Register</h2>
             <hr/>
             {success ? (
                 <div className="alert"> 
                     <strong>{successMsg}</strong> 
                     <br/><br/>
-                    <a className="btn" href="/signin">Proceed to Login</a>
+                    <a className="btn" href={`/sign-in`}>Proceed to Login</a>
                 </div>
             ) : (
                 <>
@@ -66,29 +66,27 @@ function Register() {
                         <div className="alert">
                             <strong>{errorMsg}</strong>
                             <br/><br/>
-                            <a className="btn" href="/register">Proceed to Register</a>
+                            <a className="btn" href={`/register`}>Proceed to Register</a>
                         </div>
                     ) : (
-                        <div>
-                            <div className="userForm">
-                                <form onSubmit={handleRegister}>
-                                    <input className="formInput" id="firstName" name="firstName" type="text" placeholder="First Name" maxLength="10" required value={firstName} onChange={onChangeFirstName}/><br/>
-                                    <input className="formInput" id="lastName" name="lastName" type="text" placeholder="Last Name" required value={lastName} onChange={onChangeLastName}/><br/>
-                                    <input className="formInput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={email} onChange={onChangeEmail}/><br/>
-                                    <div className="passwordInputContainer">
-                                        <input className="formInput" id="password" name="password" type={showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password} onChange={onChangePassword}/><br/>
-                                        <img className="reg1 icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
-                                        <input className="formInput" id="password2" name="password2" type={showPass ?  "text" : "password"} placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password2} onChange={onChangePassword2}/><br/>
-                                        <img className="reg2 icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
-                                    </div>
-                    
-                                    <input type="submit" className="btn" value="Register"></input>
-                                    <br/><br/>Already Have an Account?<br/>
-                                    <a href={`/signIn`} className="btn" style={{'marginTop': '10px'}}>Sign In</a>
-                                </form>
-                            </div>
+                        <div className="userForm">
+                            <form onSubmit={handleRegister}>
+                                <input className="formInput" id="firstName" name="firstName" type="text" placeholder="First Name" maxLength="10" required value={firstName} onChange={onChangeFirstName}/><br/>
+                                <input className="formInput" id="lastName" name="lastName" type="text" placeholder="Last Name" required value={lastName} onChange={onChangeLastName}/><br/>
+                                <input className="formInput" id="email" name="email" type="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required value={email} onChange={onChangeEmail}/><br/>
+                                <div className="passwordInputContainer">
+                                    <input className="formInput" id="password" name="password" type={showPass ?  "text" : "password"} placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password} onChange={onChangePassword}/><br/>
+                                    <img className="reg1 icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
+                                    <input className="formInput" id="password2" name="password2" type={showPass ?  "text" : "password"} placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required value={password2} onChange={onChangePassword2}/><br/>
+                                    <img className="reg2 icon" src={showPass ? showPwdImg : hidePwdImg} onClick={onChangeShowPass} />
+                                </div>
+                
+                                <input type="submit" className="btn" value="Register"></input>
+                                <br/><br/>Already Have an Account?<br/>
+                                <a href={`/sign-in`} className="btn" style={{'marginTop': '10px'}}>Sign In</a>
+                            </form>
                         </div>
                     )}
                 </>
