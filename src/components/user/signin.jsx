@@ -61,7 +61,6 @@ function signIn() {
                             <a href={`/forgot-password`} className="forgotPassword">Forgot Password?</a>
                         </div>
 
-
                         <input type="submit" className="btn" value="Sign In"></input>
                         <br/><br/>Need an Account?<br/>
                         <a href={`/register`} className="btn">Register</a>
