@@ -78,9 +78,9 @@
     visibility: hidden;
 }
 
-/* .forgotPasswordContainer {
+.forgotPasswordContainer {
     margin: -1% 0% 10% 68%;
-} */
+}
 
 .forgotPassword {
     transition: color 0.3s ease;
