@@ -30,16 +30,16 @@ function resetPassword() {
 
         UserDataService.resetPassword(token, data)
         .then(response => {
-            console.log(response.data);
-            // setSuccess(true);
-            // setSuccessMsg(response.data);
-            // setTimeout(() => { window.location.replace('/sign-in'); }, 60000); 
+            // console.log(response.data);
+            setSuccess(true);
+            setSuccessMsg(response.data);
+            setTimeout(() => { window.location.replace('/sign-in'); }, 60000); 
         })
         .catch(error => { 
-            console.log(error.response.data);
-            // setError(true);
-            // setErrorMsg(error.response.data);
-            // setTimeout(() => { window.location.replace('/register'); }, 60000); 
+            // console.log(error.response.data);
+            setError(true);
+            setErrorMsg(error.response.data);
+            setTimeout(() => { window.location.replace(`/reset-password/${token}`); }, 60000); 
         });
     }
 
@@ -51,7 +51,7 @@ function resetPassword() {
                 <div className="alert"> 
                     <strong>{successMsg}</strong> 
                     <br/><br/>
-                    <a className="btn" href={`/sign-in`}>Proceed to Login</a>
+                    <a className="btn" href={'/sign-in'}>Proceed to Login</a>
                 </div>
             ) : (
                 <>
@@ -59,7 +59,7 @@ function resetPassword() {
                         <div className="alert">
                             <strong>{errorMsg}</strong>
                             <br/><br/>
-                            <a className="btn" href={`/reset-password/${token}`}>Proceed to Login</a>
+                            <a className="btn" href={`/reset-password/${token}`}>Proceed Rest Password</a>
                         </div>
                     ) : (
                         <div>
