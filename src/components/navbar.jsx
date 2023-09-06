@@ -55,14 +55,14 @@ function NavBar() {
 
     const handleSignOut = async () => {
         UserDataService.signOut()
-        .then(response => {
+        .then((response) => {
             // console.log(response);
             localStorage.removeItem('jwtToken');
             setSession(null);
             setUserName('');
             setTimeout(() => { window.location.replace('/'); }, 0);
         })
-        .catch(error => {
+        .catch((error) => {
             console.error('Error decoding token:', error);
         })
     }

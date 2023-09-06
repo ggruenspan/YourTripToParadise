@@ -24,12 +24,12 @@ function signIn() {
         };
 
         UserDataService.signIn(data)
-        .then(response => {
+        .then((response)=> {
             // console.log(response.data);
             localStorage.setItem('jwtToken', response.data.token);
             setTimeout(() => { window.location.replace('/'); }, 0);
         })
-        .catch(error => {
+        .catch((error) => {
             // console.log(error.response.data);
             setError(true);
             setErrorMsg(error.response.data);

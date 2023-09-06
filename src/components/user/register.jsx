@@ -35,13 +35,13 @@ function Register() {
         };
 
         UserDataService.register(data)
-        .then(response => {
+        .then((response) => {
             // console.log(response.data);
             setSuccess(true);
             setSuccessMsg(response.data);
             setTimeout(() => { window.location.replace('/sign-in'); }, 60000); 
         })
-        .catch(error => { 
+        .catch((error) => { 
             // console.log(error.response.data);
             setError(true);
             setErrorMsg(error.response.data);
