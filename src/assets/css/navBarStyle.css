@@ -162,7 +162,10 @@
 
 .dropDown-content a:hover { background-color: rgba(170, 169, 169, 0.788); }
 
-#menuOpt { display: none; }
+#menuOpt { 
+    display: none;
+    white-space: nowrap;
+}
 
 /* navBar ------------------------------------------------------------- End */
 
