@@ -14,7 +14,7 @@ import Cruises from "./components/cruises.jsx";
 import ErrorPage from "./components/errorPage.jsx";
 
 import Register from "./components/user/register.jsx";
-// import SignIn from "./components/user/signIn.jsx";
+import SignIn from "./components/user/signIn.jsx";
 import ForgotPassword from "./components/user/passwordOpt/forgotPassword.jsx";
 import ResetPassword from "./components/user/passwordOpt/resetPassword.jsx";
 
