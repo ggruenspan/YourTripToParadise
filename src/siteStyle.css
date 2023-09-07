@@ -30,6 +30,15 @@ body::-webkit-scrollbar {
     width: 0rem;
 }
 
+#turn {
+    background-color: #232323;
+    height: 100000px;
+    background-image: url(./assets/images/rotateDevice.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 /* body::-webkit-scrollbar-track {
     background: var(--bg-primary);
 }
